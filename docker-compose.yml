@@ -4,21 +4,38 @@ services:
   django_gunicorn:
     volumes:
       - static:/static
+      - upload:/upload
+  
+     
     env_file:
       - .env
     build:
       context: .
     ports:
-      - "8000:8000"
+      - "8005:8000"
   nginx:
     build: ./ngnix
     volumes:
       - static:/static
+      - upload:/upload
+
+     
       
     ports:
-      - "80:80"
+      - "85:80"
     depends_on:
       - django_gunicorn
 
+
+  db:
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
 volumes:
   static:
+  upload:

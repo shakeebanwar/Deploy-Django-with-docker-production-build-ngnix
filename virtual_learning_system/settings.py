@@ -23,10 +23,12 @@ from django.contrib.messages import constants as messages
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = '423wrfdcxvxcxdxfszdxaszdxzcxsz'
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY ='a$0nkxs32c)nh=!47c3+np_&6w81e&nl8%pf4p%f%l0@-qzvrm'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'False'
+# DEBUG = os.environ.get('DEBUG')
+DEBUG = False
 
 
 ALLOWED_HOSTS = ['*']
@@ -50,7 +52,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -83,26 +84,24 @@ WSGI_APPLICATION = 'virtual_learning_system.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-   
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres',
-#         'USER': 'postgres',
-#         'PASSWORD': 'postgres',
-#         'HOST': 'db',
-#         'PORT': 5432,
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-       
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -161,7 +160,8 @@ MESSAGE_TAGS = {
    
 }
 # Upload Files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
+MEDIA_ROOT = '/upload/'
 MEDIA_URL = '/upload/'
 
 
