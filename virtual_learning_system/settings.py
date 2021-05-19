@@ -160,8 +160,8 @@ MESSAGE_TAGS = {
    
 }
 # Upload Files
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
-MEDIA_ROOT = '/upload/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'upload')
+# MEDIA_ROOT = '/upload/'
 MEDIA_URL = '/upload/'
 
 

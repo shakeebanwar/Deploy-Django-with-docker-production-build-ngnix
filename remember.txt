@@ -1,0 +1,6 @@
+Docker :
+###Specific table-data backup
+python manage.py dumpdata superadmin.AdminAccount > db.json
+
+####copy local machine folder to the docker container
+docker cp /Users/admin/Desktop/djangoboiler/django_project/upload 88b2239b6d08:/
